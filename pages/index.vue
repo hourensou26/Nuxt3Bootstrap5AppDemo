@@ -1,5 +1,3 @@
 <template>
-  <div class="container">
-    <h1>Hello World</h1>
-  </div>
+<h1>main</h1>
 </template>
