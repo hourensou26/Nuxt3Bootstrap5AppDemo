@@ -8,6 +8,7 @@
   
   <div>
     <h2 class="m-5" style="text-align: center;">予定アプリ</h2>
+
   </div>
 
 
