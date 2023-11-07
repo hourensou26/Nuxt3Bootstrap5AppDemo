@@ -7,13 +7,14 @@
     </template>
 
 
+<script setup
 import { createApp } from 'vue'
 
 const app = createApp({})
 
 app.component(
 
-  'MyComponent',
+  'create-component',
   {
   deta(){
     return{
@@ -39,3 +40,5 @@ app.component(
 )
 
 app.mount('#app')
+</script>
+```
