@@ -23,6 +23,3 @@
 </template>
 
 
-<script>
-import { App } from '../app.vue';
-</script>
