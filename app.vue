@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  data() {
+  deta() {
     return {
       title: '',
       date: '',
@@ -25,5 +25,8 @@ export default {
       console.log('Create button clicked');
       }
     },
+    cancel() {
+      console.log('Cancel button clicked');
+    }
 }
 </script>
