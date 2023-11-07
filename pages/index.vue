@@ -10,6 +10,13 @@
     <p>日付入れる</p>
     <p>詳細入れる</p>
 
+    <p>{{title}}</p>
+    <p>{{date}}</p>
+    <p>{{content}}</p>
   </div>
 
 </template>
+
+<script>
+import { create
+</script>
