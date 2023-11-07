@@ -23,5 +23,6 @@
 </template>
 
 
-
+<script setup>
+import { NewCreate } from ''@/components/NewCreate.vue';
 </script>
