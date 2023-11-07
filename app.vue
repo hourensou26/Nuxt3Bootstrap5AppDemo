@@ -9,18 +9,33 @@
 
 import { createApp } from 'vue'
 
-const app1 = createApp({})
+const app = createApp({})
 
 app.component(
-  'desplay-component',
+
+  'MyComponent',
   {
-  const schedule= [{title: 'title', date: 'date', content: 'content'}]
-  }
+  deta(){
+    return{
+      title: '',
+      date: '',
+      content: ''
+    }
+  },
+
+  methods:{
+    create(){
+      const data{
+        title:'',
+        date:'',
+        content:'',
+        }
+        console.log('creata button clicked')       
+  },
+    cancel(){
+    
+    console.log('cancel button clicked')
+    }
 )
 
-app.component(
-  'create-component',
-  {
-  
-  }
-)
+app.mount('#app')
