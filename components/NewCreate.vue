@@ -31,3 +31,24 @@ app.component(
   }
 )
 </script>
+
+<script>
+import NewCreate from '/workspaces/Nuxt3Bootstrap5AppDemo/pages/index.vue;
+export default {
+  data() {
+    return {
+      title: '',
+      date: '',
+      content: ''
+    };
+  },
+  methods: {
+  SaveData() {
+    this.SaveData = {
+      title: this.title,
+      date: this.date,
+      content: this.content
+    }
+  }
+  }
+}
