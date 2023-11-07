@@ -16,13 +16,14 @@ export default {
     };
   },
   methods: {
-  SaveData() {
-    this.SaveData = {
+  create() {
+    const deta = {
       title: this.title,
       date: this.date,
       content: this.content
-    }
-  }
-  }
+      }
+      console.log('Create button clicked');
+      }
+    },
 }
 </script>
