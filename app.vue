@@ -9,12 +9,17 @@
 
 import { createApp } from 'vue'
 
-const app = createApp({
-  data() {
-    return {
-      count: 0
-    }
-  }
-})
+const app1 = createApp({})
 
-app.mount('#app')
+app.component(
+  'desplay-component',
+  {
+    template: '<p>表示コンポーネント</p>'
+  }
+)
+
+
+const app2 = createApp({
+  /* ... */
+})
+app2.mount('#new-create')
