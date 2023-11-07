@@ -1,7 +1,3 @@
-<script setup>
-import create-component from '../app.vue'
-</script>
-
 <template>
     <div class="container-fluid">
         <h1 class="m-5">新規作成</h1>
@@ -25,3 +21,5 @@ import create-component from '../app.vue'
         </div>
     </div>
 </template>
+
+
