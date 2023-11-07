@@ -14,12 +14,13 @@ const app1 = createApp({})
 app.component(
   'desplay-component',
   {
-    template: '<p>表示コンポーネント</p>'
+  const schedule= [{title: 'title', date: 'date', content: 'content'}]
   }
 )
 
-
-const app2 = createApp({
-  /* ... */
-})
-app2.mount('#new-create')
+app.component(
+  'create-component',
+  {
+  
+  }
+)
