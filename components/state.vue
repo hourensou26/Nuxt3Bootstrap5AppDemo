@@ -1,31 +1,24 @@
-import{createApp} from 'vue'
-import{createStore} from 'vuex'
-
-const store = createStore({
-  state () {
+<script>
+export default {
+  data() {
     return {
-      count: 0
-    }
+      title: '',
+      date: '',
+      content: ''
+    };
   },
-  mutations: {
-    increment (state) {
-      state.count++
+  methods: {
+  create() {
+    const data = {
+      title: this.title,
+      date: this.date,
+      content: this.content
+      }
+      console.log('Create button clicked', data);
+      }
+    },
+    cancel() {
+      console.log('Cancel button clicked');
     }
-  }
-})
-
-const app = createApp({ /* ルートコンポーネント */ })
-
-// プラグインとしてストアインスタンスをインストールします
-app.use(store)
-
-store.commit('increment')
-
-console.log(store.state.count) // -> 1
-
-methods: {
-  increment() {
-    this.$store.commit('increment')
-    console.log(this.$store.state.count)
-  }
 }
+</script>

@@ -27,3 +27,13 @@ import NewCreate from '@/components/NewCreate.vue'
     </div>
 </template>
 
+<script>
+import NewCreate from '@/components/NewCreate.vue'
+
+const  todolist= {
+    title: '',
+    date: '',
+    content: ''
+}
+
+commit({todolist},createData);
