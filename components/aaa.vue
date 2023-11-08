@@ -1,17 +1,15 @@
 <template>
- <div class="title">
-   {[msg}}
-    </div>
+    <dev class="title">
+        {{rg}}
+    </dev>
 </template>
 
 <script>
-const msg = 'Hello World!'
+const rg = "aaa";
 </script>
 
 <style>
-.title {
-  font-size: 3em;
-  text-align: center;
-  color: blue;
+title {
+    color: red;
 }
 </style>

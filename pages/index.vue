@@ -16,7 +16,3 @@
   </div>
 
 </template>
-
-<script>
-import { create
-</script>
