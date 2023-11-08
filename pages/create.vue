@@ -1,5 +1,9 @@
 <script setup>
-import NewCreate from '@/components/NewCreate.vue'
+import { ref } from 'vue';
+
+const title = ref('');
+const date = ref('');
+const content = ref('');
 </script>
 
 <template>
@@ -27,13 +31,14 @@ import NewCreate from '@/components/NewCreate.vue'
     </div>
 </template>
 
+
 <script>
-import NewCreate from '@/components/NewCreate.vue'
+import ListCreate from '@/components/NewCreate.vue'
 
-const  todolist= {
-    title: '',
-    date: '',
-    content: ''
-}
+store.commit(title,title.value)
+store.commit(date,date.value)
+store.commit(content,content.value)
 
-commit({todolist},createData);
+
+
+</script>

@@ -1,17 +1,7 @@
-<script setup>
-import { ref } from 'vue'; // 'ref'
-
-const title = ref('');
-const date = ref('');
-const content = ref('');
-</script>
-
 <script>
-import { createData } from '@/store/actions'; 
-
 export default {
 
-  setup() {
+  ListCreate() {
     const create = () => {
       // 新しいデータを作成
       const newData = {
