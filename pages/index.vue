@@ -17,6 +17,7 @@
 
 </template>
 
+<script>
+import ListCreate from '@/components/NewCreate.vue'
 
-<script
-import state from '@/components/state.vue'
+</script>
