@@ -9,6 +9,7 @@ import NewCreate from '@/components/NewCreate.vue'
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
+                <NewCreate/>
                 <input type="text" class="form-control" v-model="title" placeholder="タイトル">
                 </div>
                 <div class="col-md-3">
