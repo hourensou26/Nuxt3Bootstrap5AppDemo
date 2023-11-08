@@ -1,3 +1,7 @@
+<script setup>
+import NewCreate from '@/components/NewCreate.vue'
+</script>
+
 <template>
     <div class="container-fluid">
         <h1 class="m-5">新規作成</h1>
