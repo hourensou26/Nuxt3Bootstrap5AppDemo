@@ -1,5 +1,5 @@
 <template>
-
-<slot />
+  <Navber />
+  <slot />
 
 </template>

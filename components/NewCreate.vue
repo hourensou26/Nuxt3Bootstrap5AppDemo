@@ -22,3 +22,21 @@ export default {
   },
 };
 </script>
+
+<script setup>
+import { ref } from 'vue';
+
+const title = ref('');
+const date = ref('');
+const content = ref('');
+</script>
+
+<script>
+
+store.commit(title,title.value)
+store.commit(date,date.value)
+store.commit(content,content.value)
+
+
+
+</script>
