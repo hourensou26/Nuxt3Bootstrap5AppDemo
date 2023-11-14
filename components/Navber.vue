@@ -4,17 +4,9 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand text-light" href="/">Todo</a>
+    <NuxtLink class="navbar-brand text-light" href="/">Todo</NuxtLink>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="/">トップ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="create">新規作成</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex ms-auto" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success text-light" type="submit">Search</button>
       </form>
