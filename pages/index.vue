@@ -1,9 +1,3 @@
-<script setup>
-import ListCreate from '@/components/NewCreate.vue'
-import {mapState } from 'vuex'
-</script>
-
-
 <template>
 <div class="container-fluid">
 <h1 class="m-5">予定アプリ</h1>
@@ -15,10 +9,6 @@ import {mapState } from 'vuex'
     <h3>タイトル入れる</h3>
     <p>日付入れる</p>
     <p>詳細入れる</p>
-
-    <p>{{title.value}}</p>
-    <p>{{date.value}}</p>
-    <p>{{content.value}}</p>
   </div>
 
 </template>
