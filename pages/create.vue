@@ -15,6 +15,7 @@ const create = () => {
 }
 
 const cancel = () => {
+  document.location.href = '/';
   console.log('Cancel button clicked');
 }
 </script>
