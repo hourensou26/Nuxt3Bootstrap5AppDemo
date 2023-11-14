@@ -1,25 +1,60 @@
 <template>
-  <div>
-    <div v-for="(item, index) in items" :key="index">
-      <!-- 要素に動的にIDを付与 -->
-      <p :id="'item-' + index">{{ item }}</p>
+  <div class="container-fluid">
+    <h1 class="m-5">新規作成</h1>
+    <nuxt-link class="btn-m-3 btn btn-primary" role="button" to="/">トップへ</nuxt-link>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <input type="text" class="form-control" v-model="title" placeholder="タイトル" />
+        </div>
+        <div class="col-md-3">
+          <input type="date" class="form-control" v-model="date" placeholder="日付" />
+        </div>
+        <div class="col">
+          <textarea class="form-control " v-model="content" placeholder="詳細"></textarea>
+        </div>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-success" @click="create">新規作成</button>
+        <button class="btn btn-danger" @click="cancel">キャンセル</button>
+      </div>
+    </div>
+
+    <!-- 新規作成されたデータの表示 -->
+    <div v-for="(item, index) in createdItems" :key="index">
+      <p :id="'item-' + index">{{ item.title }} , {{ item.date }} , {{ item.content }}</p>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-// TypeScriptの型定義
-interface MyItem {
-  id: number;
-  text: string;
-}
+<script setup>
+import { ref } from 'vue';
 
-// ダミーデータ
-const items: MyItem[] = [
-  { id: 1, text: 'アイテム1' },
-  { id: 2, text: 'アイテム2' },
-  { id: 3, text: 'アイテム3' },
-];
+const title = ref('');
+const date = ref('');
+const content = ref('');
+const createdItems = ref([]);
 
-// データやメソッドのロジック
+const create = () => {
+  const data = {
+    title: title.value,
+    date: date.value,
+    content: content.value
+  };
+  createdItems.value.push(data);
+  console.log('Create button clicked', data);
+  // フォームをクリア
+  clearForm();
+};
+
+const cancel = () => {
+  clearForm();
+  console.log('Cancel button clicked');
+};
+
+const clearForm = () => {
+  title.value = '';
+  date.value = '';
+  content.value = '';
+};
 </script>

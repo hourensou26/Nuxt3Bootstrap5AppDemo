@@ -1,26 +1,3 @@
-<script setup>
-
-const title = ref('');
-const date = ref('');
-const content = ref('');
-
-const create = () => {
-  const data = {
-    title: title.value,
-    date: date.value,
-    content: content.value
-  }
-  console.log('Create button clicked', data);
-}
-
-const cancel = () => {
-  title.value = '';
-  date.value = '';
-  content.value = '';
-  console.log('Cancel button clicked');
-}
-</script>
-
 <template>
     <div class="container-fluid">
         <h1 class="m-5">新規作成</h1>
@@ -45,3 +22,31 @@ const cancel = () => {
     </div>
 </template>
 
+<script setup>
+
+const title = ref('');
+const date = ref('');
+const content = ref('');
+const createdItems = ref([]);
+
+const create = () => {
+  const data = {
+    title: title.value,
+    date: date.value,
+    content: content.value
+  };
+  createdItems.value.push(data);
+  console.log('Create button clicked', data);
+  clearForm();
+}
+
+const cancel = () => {
+  clearForm();
+  console.log('Cancel button clicked');
+};
+
+const clearForm = () => {
+  title.value = '';
+  date.value = '';
+  content.value = '';
+};</script>
