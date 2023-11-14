@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 
 const title = ref('');
 const date = ref('');
