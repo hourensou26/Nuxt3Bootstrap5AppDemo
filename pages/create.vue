@@ -15,7 +15,9 @@ const create = () => {
 }
 
 const cancel = () => {
-  document.location.href = '/';
+  title.value = '';
+  date.value = '';
+  content.value = '';
   console.log('Cancel button clicked');
 }
 </script>
