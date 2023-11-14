@@ -4,6 +4,19 @@ import { ref } from 'vue';
 const title = ref('');
 const date = ref('');
 const content = ref('');
+
+const create = () => {
+  const data = {
+    title: title.value,
+    date: date.value,
+    content: content.value
+  }
+  console.log('Create button clicked', data);
+}
+
+const cancel = () => {
+  console.log('Cancel button clicked');
+}
 </script>
 
 <template>
