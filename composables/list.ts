@@ -1,17 +1,11 @@
 import { ref } from 'vue';
 
-interface SavedData {
-  title: string;
-  date: Date;
-  content: string;
+const dataList = ref([]);
+
+export function sendToList(data) {
+  dataList.value.push(data);
 }
 
-const inputData = ref<SavedData>({ title: '', date: new Date(), content: '' });
-
-export function saveData(data: SavedData): void {
-  inputData.value = { ...data };
-}
-
-export function getInputData(): SavedData {
-  return { ...inputData.value };
+export function getListData() {
+  return dataList.value;
 }

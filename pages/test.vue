@@ -26,11 +26,10 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import { sendToList } from '~/composables/list';
 const title = ref('');
 const date = ref('');
 const content = ref('');
-const createdItems = ref([]);
 
 const create = () => {
   const saveData = {
@@ -38,7 +37,9 @@ const create = () => {
     date: date.value,
     content: content.value
   };
-  createdItems.value.push(saveData);
+
+  sendToList(saveData);
+
   console.log('Create button clicked', saveData);
   clearForm();
 }
@@ -54,3 +55,4 @@ const clearForm = () => {
   content.value = '';
 };
 </script>
+
