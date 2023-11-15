@@ -23,6 +23,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
 const title = ref('');
 const date = ref('');
@@ -30,13 +31,13 @@ const content = ref('');
 const createdItems = ref([]);
 
 const create = () => {
-  const SaveData = {
+  const saveData = {
     title: title.value,
     date: date.value,
     content: content.value
   };
-  createdItems.value.push(SaveData);
-  console.log('Create button clicked', data);
+  createdItems.value.push(saveData);
+  console.log('Create button clicked', saveData);
   clearForm();
 }
 
@@ -49,4 +50,5 @@ const clearForm = () => {
   title.value = '';
   date.value = '';
   content.value = '';
-};</script>
+};
+</script>
