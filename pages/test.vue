@@ -24,35 +24,15 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import { sendToList } from '~/composables/list';
-const title = ref('');
-const date = ref('');
-const content = ref('');
-
-const create = () => {
-  const saveData = {
-    title: title.value,
-    date: date.value,
-    content: content.value
-  };
-
-  sendToList(saveData);
-
-  console.log('Create button clicked', saveData);
-  clearForm();
-}
-
-const cancel = () => {
-  clearForm();
-  console.log('Cancel button clicked');
-};
-
-const clearForm = () => {
-  title.value = '';
-  date.value = '';
-  content.value = '';
-};
+<script lang="ts">
+import { defineComponent } from 'vue';
+import MyServie from '@/composables/states';
+export default defineComponent({
+  methods: {
+    sendMessage() {
+      const message = 'Hello from Vue!';
+      MyService.sendMessage(message);
+    },
+  },
+});
 </script>
-

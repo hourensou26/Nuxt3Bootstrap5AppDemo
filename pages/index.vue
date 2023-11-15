@@ -6,7 +6,7 @@
 
   <div class="m-5" style="text-align: center;">
     <h2>予定一覧</h2>
-    <h3>{{ savedData.title }}</h3>
+    <h3>{{ dataList.title }}</h3>
     <p>{{ savedData.date }}</p>
     <p>{{ savedData.content }}</p>
   </div>
