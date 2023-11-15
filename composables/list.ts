@@ -1,25 +1,19 @@
-<template>
-  <div>
-    <div v-for="(item, index) in items" :key="index">
-      <!-- 要素に動的にIDを付与 -->
-      <p :id="'item-' + index">{{ item }}</p>
-    </div>
-  </div>
-</template>
+// composables/dataHandler.ts
 
-<script setup lang="ts">
-// TypeScriptの型定義
-interface MyItem {
-  id: number;
-  text: string;
+import { ref } from 'vue';
+
+interface SavedData {
+  title: string;
+  date: Date;
+  content: string;
 }
 
-// ダミーデータ
-const items: MyItem[] = [
-  { id: 1, text: 'アイテム1' },
-  { id: 2, text: 'アイテム2' },
-  { id: 3, text: 'アイテム3' },
-];
+const inputData = ref<SavedData>({ title: '', date: new Date(), content: '' });
 
-// データやメソッドのロジック
-</script>
+export function saveData(data: SavedData): void {
+  inputData.value = { ...data };
+}
+
+export function getInputData(): SavedData {
+  return { ...inputData.value };
+}

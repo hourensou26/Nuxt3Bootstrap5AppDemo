@@ -30,12 +30,12 @@ const content = ref('');
 const createdItems = ref([]);
 
 const create = () => {
-  const data = {
+  const SaveData = {
     title: title.value,
     date: date.value,
     content: content.value
   };
-  createdItems.value.push(data);
+  createdItems.value.push(SaveData);
   console.log('Create button clicked', data);
   clearForm();
 }

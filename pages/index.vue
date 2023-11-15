@@ -14,9 +14,10 @@
     <h3>タイトル入れる</h3>
     <p>日付入れる</p>
     <p>詳細入れる</p>
-    <ul>
-      <li v-for="task in tasks" :key="task.id">{{ task.task }}</li>
-    </ul>
+    <div v-for="(item, index) in createdItems" :key="index">
+      <p :id="'item-' + index">{{ item.title }} , {{ item.date }} , {{ item.content }}</p>
+    </div>
   </div>
+
 
 </template>
