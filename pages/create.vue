@@ -1,5 +1,3 @@
-<!-- pages/create.vue -->
-
 <template>
   <div class="container-fluid">
     <h1 class="m-5">新規作成</h1>
@@ -27,36 +25,43 @@
 </template>
 
 <script setup>
-import {statuses} from '../const/status';
+import { statuses } from '../const/status';
 import { ref } from 'vue';
+import { saveAs } from 'file-saver'; // FileSaver.js の saveAs を import
+
 const title = ref('');
 const date = ref('');
 const content = ref('');
 
+const items = JSON.parse(localStorage.getItem('items')) || [];
 
+const NotInput = ref(false);
 
-const items =JSON.parse(localStorage.getItem('items')) || [];
+const createTodo = () => {
+  if (title.value === '' || date.value === '' || content.value === '') {
+    NotInput.value = true;
+    return;
+  }
 
-const TodoData ={
-  id: length,
-  title: title.value,
-  date: date.value,
-  content: content.value,
-  state: statuses.NOT_START,
-  onEdit: false,
-};
+  const TodoData = {
+    id: items.length,
+    title: title.value,
+    date: date.value,
+    content: content.value,
+    state: statuses.NOT_START,
+    onEdit: false,
+  };
 
-const NotInput =ref(false);
-if (title.value === '' || date.value === '' || content.value === '') {
-  NotInput.value = true;
-  event.preventDefault();
-  return;
-}
+  items.push(TodoData);
+  localStorage.setItem('items', JSON.stringify(items));
 
-items.push(TodoData);
-localStorage.setItem('items', JSON.stringify(items));
-  console.log('Create button clicked', saveData);
+  const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
+
+  saveAs(blob, 'todoData.json');
+
+  console.log('Create button clicked', TodoData);
   clearForm();
+};
 
 const cancel = () => {
   clearForm();
@@ -69,4 +74,3 @@ const clearForm = () => {
   content.value = '';
 };
 </script>
-
