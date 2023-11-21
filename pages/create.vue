@@ -67,4 +67,3 @@ const clearForm = () => {
   content.value = '';
 };
 </script>
-
