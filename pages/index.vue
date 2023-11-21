@@ -2,27 +2,25 @@
   <div class="container-fluid">
     <h1 class="m-5">予定アプリ</h1>
     <nuxt-link class="btn-m-3 btn btn-primary" role="button" to="/create">新規作成</nuxt-link>
-  </div>
 
   <div class="m-5" style="text-align: center;">
     <h2>予定一覧</h2>
-    <h3>{{ datalist.title }}</h3>
-    <p>{{ savedData.date }}</p>
-    <p>{{ savedData.content }}</p>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
-  import { getListData } from '~/composables/list';
+//const items = JSON.parse(localStorage.getItem('items')) || [];
 
-  const savedData = ref(getListData());
 
-  onMounted(() => {
-    const updateData = () => {
-      savedData.value = getListData();
-    };
-
-   setInterval(updateData, 1000);
-  });
 </script>
