@@ -3,28 +3,29 @@
     <h1 class="m-5">予定アプリ</h1>
     <nuxt-link class="btn-m-3 btn btn-primary" role="button" to="/create">新規作成</nuxt-link>
 
-  <div class="m-5" style="text-align: center;">
-    <h2>予定一覧</h2>
-
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+    <div class="m-5" style="text-align: center;">
+      <h2>予定一覧</h2>
+    </div>
+  </div>
+  <div class="card w-50 mb-5" style="margin: auto;" v-for="item in items" :key="item.id">
+    <div class="card-body">
+      <h4 class="card-title">タイトル：{{ item.title }}</h4>
+      <p class="card-text pt-2">期限：{{ item.date }}</p>
+      <div class="d-flex justify-content-end flex-wrap">
+        <button class="btn btn-secondary" @click="edit(item)">詳細</button>
+        <button class="btn btn-success" @click="edit(item)">編集</button>
+        <button class="btn btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
   </div>
-  </div>
 
   <div class="container">
-  <p v-for="item in items" :key="item.id">
-    {{ item.title }}
-    {{ item.date }}
-    {{ item.content }}
-  </p>
-    </div>
+    <p v-for="item in items" :key="item.id">
+      {{ item.title }}
+      {{ item.date }}
+      {{ item.content }}
+    </p>
+  </div>
 </template>
 
 <script setup>
@@ -33,6 +34,11 @@ const items = ref([])
 onMounted(() => {
   const ls = localStorage.getItem('items');
   items.value = JSON.parse(ls) || [];
-  })
- 
+})
+
+function deleteItem(item) {
+  const index = items.value.findIndex((v) => v.id === item.id);
+  items.value.splice(index, 1);
+  localStorage.setItem('items', JSON.stringify(items.value));
+}
 </script>
