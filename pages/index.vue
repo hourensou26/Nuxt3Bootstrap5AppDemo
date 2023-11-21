@@ -17,10 +17,22 @@
     </div>
   </div>
   </div>
+
+  <div class="container">
+  <p v-for="item in items" :key="item.id">
+    {{ item.title }}
+    {{ item.date }}
+    {{ item.content }}
+  </p>
+    </div>
 </template>
 
 <script setup>
-//const items = JSON.parse(localStorage.getItem('items')) || [];
 
-
+const items = ref([])
+onMounted(() => {
+  const ls = localStorage.getItem('items');
+  items.value = JSON.parse(ls) || [];
+  })
+ 
 </script>
