@@ -5,6 +5,7 @@
     <h1 class="m-5">新規作成</h1>
     <nuxt-link class="btn-m-3 btn btn-primary" role="button" to="/">トップへ</nuxt-link>
     <div class="container">
+    <form @submit="onSubmitForm">
       <div class="row">
         <div class="col-md-9">
           <input type="text" class="form-control" v-model="title" placeholder="タイトル">
@@ -17,32 +18,45 @@
         </div>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-success" @click="create">新規作成</button>
+        <button class="btn btn-success" type="submit">新規作成</button>
         <button class="btn btn-danger" @click="cancel">キャンセル</button>
       </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script setup>
+import {statuses} from '../const/status';
 import { ref } from 'vue';
-import { sendToList } from '~/composables/list';
 const title = ref('');
 const date = ref('');
 const content = ref('');
 
-const create = () => {
-  const saveData = {
-    title: title.value,
-    date: date.value,
-    content: content.value
-  };
 
-  sendToList(saveData);
 
+const items =JSON.parse(localStorage.getItem('items')) || [];
+
+const TodoData ={
+  id: length,
+  title: title.value,
+  date: date.value,
+  content: content.value,
+  state: statuses.NOT_START,
+  onEdit: false,
+};
+
+const NotInput =ref(false);
+if (title.value === '' || date.value === '' || content.value === '') {
+  NotInput.value = true;
+  event.preventDefault();
+  return;
+}
+
+items.push(TodoData);
+localStorage.setItem('items', JSON.stringify(items));
   console.log('Create button clicked', saveData);
   clearForm();
-}
 
 const cancel = () => {
   clearForm();
