@@ -39,6 +39,11 @@
   </div>
 
 </div>
+<p v-for = "item in items" :key="item.id">
+  {{item.title}}
+  {{item.date}}
+  {{item.content}}
+</p>
 </template>
 
 <script setup>
