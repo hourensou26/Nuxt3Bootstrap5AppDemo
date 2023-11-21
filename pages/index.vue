@@ -12,19 +12,11 @@
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <button class="btn btn-secondary" @click="edit(item)">詳細</button>
+        <nuxt-link class="btn btn-secondary" role="button" to="/about" @click="about(item)">詳細</nuxt-link>
         <button class="btn btn-success" @click="edit(item)">編集</button>
         <button class="btn btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
-  </div>
-
-  <div class="container">
-    <p v-for="item in items" :key="item.id">
-      {{ item.title }}
-      {{ item.date }}
-      {{ item.content }}
-    </p>
   </div>
 </template>
 
