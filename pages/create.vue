@@ -27,7 +27,6 @@
 <script setup>
 import { statuses } from '../const/status';
 import { ref } from 'vue';
-import { saveAs } from 'file-saver'; // FileSaver.js の saveAs を import
 
 const title = ref('');
 const date = ref('');
@@ -42,23 +41,17 @@ const createTodo = () => {
     NotInput.value = true;
     return;
   }
-
-  const TodoData = {
-    id: items.length,
-    title: title.value,
-    date: date.value,
-    content: content.value,
-    state: statuses.NOT_START,
-    onEdit: false,
-  };
+const TodoData ={
+  id: length,
+  title: title.value,
+  date: date.value,
+  content: content.value,
+  state: statuses.NOT_START,
+  onEdit: false,
+};
 
   items.push(TodoData);
   localStorage.setItem('items', JSON.stringify(items));
-
-  const blob = new Blob([JSON.stringify(items, null, 2)], { type: 'application/json' });
-
-  saveAs(blob, 'todoData.json');
-
   console.log('Create button clicked', TodoData);
   clearForm();
 };
@@ -74,3 +67,4 @@ const clearForm = () => {
   content.value = '';
 };
 </script>
+
