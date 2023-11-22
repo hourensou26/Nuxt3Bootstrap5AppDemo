@@ -9,6 +9,7 @@
             <div class="card-body">
                 <h4 class="card-title">タイトル：{{ item.title }}</h4>
                 <p class="card-text pt-2">期限：{{ item.date }}</p>
+                <p class="card-text pt-2">詳細：{{ item.content }}</p>
                 <div class="d-flex justify-content-end flex-wrap">
                     <button class="btn btn-success" @click="edit(item)">編集</button>
                     <button class="btn btn-danger" @click="deleteItem(item)">削除</button>

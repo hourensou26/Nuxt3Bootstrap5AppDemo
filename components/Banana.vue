@@ -3,7 +3,7 @@
     入力されていない項目があります。
   </div>
 
-  <div>
+  <div class="mt-4">
 
     <form @submit="onSubmitForm">
 
