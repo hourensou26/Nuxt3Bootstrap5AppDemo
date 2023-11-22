@@ -5,7 +5,7 @@
     </div>
 
     <div class="container">
-        <div class="card w-50 mb-5" style="margin: auto;" v-for="item in items">
+        <div class="card w-50 mb-5" style="margin: auto;">
             <div class="card-body">
                 <h4 class="card-title">タイトル：{{ item.title }}</h4>
                 <p class="card-text pt-2">期限：{{ item.date }}</p>
@@ -20,10 +20,17 @@
 </template>
 
 <script setup>
+const item = ref({});
 
-const items = ref([])
 onMounted(() => {
-    const ls = localStorage.getItem('items');
-    items.value = JSON.parse(ls) || [];
-})
+  const itemId = this.$route.params.id;
+  item.value = getItemDetails(itemId);
+});
+
+function getItemDetails(itemId) {
+
+  const ls = localStorage.getItem('items');
+  const items = JSON.parse(ls) || [];
+  return items.find((v) => v.id === itemId) || {};
+}
 </script>

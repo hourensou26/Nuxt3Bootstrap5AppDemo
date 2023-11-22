@@ -12,9 +12,9 @@
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <nuxt-link class="btn btn-secondary" role="button" to="/about" @click="about(item)">詳細</nuxt-link>
-        <button class="btn btn-success" @click="edit(item)">編集</button>
-        <button class="btn btn-danger" @click="deleteItem(item)">削除</button>
+        <nuxt-link class="btn btn-sm btn-secondary" role="button" :to="'/detail/' + item.id">詳細</nuxt-link>
+        <button class="btn btn-sm btn-success" @click="edit(item)">編集</button>
+        <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
   </div>
@@ -27,6 +27,8 @@ onMounted(() => {
   const ls = localStorage.getItem('items');
   items.value = JSON.parse(ls) || [];
 })
+
+
 
 function deleteItem(item) {
   const index = items.value.findIndex((v) => v.id === item.id);
