@@ -34,8 +34,6 @@
 </template>
 
 <script setup>
-import { statuses } from '../const/status';
-import { ref } from 'vue';
 
 const title = ref('');
 const date = ref('');
