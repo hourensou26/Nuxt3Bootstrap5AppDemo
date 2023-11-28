@@ -20,7 +20,9 @@ onMounted(() => {
   items.value = JSON.parse(ls) || [];
 })
 
-function about(item){
+function about(item) {
+  const index = items.value.findIndex((v) => v.id === item.id);
+  items.value
   this.$router.push({ path: '/detail', query: { id: item.id } });
 }
 
