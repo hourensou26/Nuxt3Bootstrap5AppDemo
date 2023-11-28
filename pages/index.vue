@@ -9,5 +9,4 @@
   </div>
 
   <Home />
-  
-  </template>
+</template>

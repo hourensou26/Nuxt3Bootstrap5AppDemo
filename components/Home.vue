@@ -4,7 +4,7 @@
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item)">詳細</nuxt-link>
+        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item)" to="/about">詳細</nuxt-link>
         <nuxt-link class="btn btn-sm btn-success" @click="edit(item)" to="/detail">編集</nuxt-link>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
       </div>
@@ -22,8 +22,7 @@ onMounted(() => {
 
 function about(item) {
   const index = items.value.findIndex((v) => v.id === item.id);
-  items.value
-  this.$router.push({ path: '/detail', query: { id: item.id } });
+
 }
 
 function deleteItem(item) {
