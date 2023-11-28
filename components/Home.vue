@@ -1,9 +1,4 @@
 <template>
-  <div class="container-fluid">
-    <div class="m-5" style="text-align: center;">
-      <h2>予定一覧</h2>
-    </div>
-  </div>
   <div class="card w-50 mt-5" style="margin: auto;" v-for="item in items" :key="item.id">
     <div class="card-body">
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
