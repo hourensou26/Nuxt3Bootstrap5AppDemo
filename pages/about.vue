@@ -4,7 +4,7 @@
         <nuxt-link class="btn-m-3 btn btn-primary" role="button" to="/">トップへ</nuxt-link>
     </div>
 
-       <div class="card w-50 mt-5" style="margin: auto;">
+    <div class="card w-50 mt-5" style="margin: auto;">
         <div class="card-body">
             <h4 class="card-title">タイトル：{{ editTitle }}</h4>
             <p class="card-text pt-2">期限：{{ editDate }}</p>
@@ -18,12 +18,27 @@
 </template>
 
 <script setup>
-
 const items = ref([])
 onMounted(() => {
-  const ls = localStorage.getItem('items');
-  items.value = JSON.parse(ls) || [];
+    const ls = localStorage.getItem('items');
+    items.value = JSON.parse(ls) || [];
 })
+
+let  editTitle = ref('');
+let editDate = ref('');
+let editContent = ref('');
+
+function about(id) {
+    const item = items.value.find((v) => v.id === id);
+
+    editTitle.value = item.title;
+    editDate.value = item.date;
+    editContent.value = item.content;
+    return {
+        editTitle,
+        editDate,
+        editContent
+    };
 
 
 </script>
