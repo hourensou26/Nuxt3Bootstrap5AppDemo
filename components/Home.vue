@@ -33,6 +33,7 @@ const editContent = ref('');
 function about(id) {
   const item = items.value.find((v) => v.id === id);
 
+
   editTitle.value = item.title;
   editDate.value = item.date;
   editContent.value = item.content;
