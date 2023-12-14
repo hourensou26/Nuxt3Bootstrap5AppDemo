@@ -17,7 +17,42 @@
     </div>
 </template>
 
-<script setup>
-import { store } from '~/composables/store.js'
+// 例えば、About.vue コンポーネント内
+<script>
+import { ref, onMounted } from 'vue';
+import { useStore } from '@/store';
 
+export default {
+  setup() {
+    const store = useStore();
+    const id = 1; // ここに実際の ID を設定するなど
+
+    const editTitle = ref(null);
+    const editDate = ref(null);
+    const editContent = ref(null);
+
+    onMounted(() => {
+      store.dispatch('fetchEditData', id);
+    });
+
+    // データが変更されるとストアからの変更を検知してコンポーネントのデータを更新
+    watch(() => store.state.editTitle, (newVal) => {
+      editTitle.value = newVal;
+    });
+
+    watch(() => store.state.editDate, (newVal) => {
+      editDate.value = newVal;
+    });
+
+    watch(() => store.state.editContent, (newVal) => {
+      editContent.value = newVal;
+    });
+
+    return {
+      editTitle,
+      editDate,
+      editContent,
+    };
+  },
+};
 </script>
