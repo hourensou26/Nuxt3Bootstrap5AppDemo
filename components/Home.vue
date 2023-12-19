@@ -4,7 +4,7 @@
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)" to="/about">詳細</nuxt-link>
+        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about" to="/about">詳細</nuxt-link>
         <nuxt-link class="btn btn-sm btn-success" @click="onEdit(item.id)" to="/detail">編集</nuxt-link>
         <button class="btn btn-sm btn-danger" @click="about(item.id)">編集テスト</button>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
@@ -20,24 +20,21 @@
 
 <script setup>
 
+import { GetEditItem } from '~/composables/store';
+
 const items = ref([])
 onMounted(() => {
   const ls = localStorage.getItem('items');
   items.value = JSON.parse(ls) || [];
 })
 
-function about(id) {
-  const item = items.value.find((v) => v.id === id);
+let editTitle = ref('');
+let editDate = ref('');
+let editContent = ref('');
 
-  const editItem = {
-    id: item.id,
-    title: item.title,
-    date: item.date,
-    content: item.content,
-  };
-
+function about() {
+  GetEditItem();
 }
-
 
 function deleteItem(item) {
   if (!confirm('削除しますか？')) return;
