@@ -4,7 +4,7 @@
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <navigate-to class="btn btn-sm btn-secondary" role="button" @click="about(item.id)" to="/about">詳細</navigate-to>
+        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)" to="/about">詳細</nuxt-link>
         <nuxt-link class="btn btn-sm btn-success" @click="onEdit(item.id)" to="/detail">編集</nuxt-link>
         <button class="btn btn-sm btn-danger" @click="about(item.id)">編集テスト</button>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
@@ -26,24 +26,17 @@ onMounted(() => {
   items.value = JSON.parse(ls) || [];
 })
 
-const editTitle = ref('');
-const editDate = ref('');
-const editContent = ref('');
-
 function about(id) {
   const item = items.value.find((v) => v.id === id);
 
+  const editItem = {
+    id: item.id,
+    title: item.title,
+    date: item.date,
+    content: item.content,
+  };
 
-  editTitle.value = item.title;
-  editDate.value = item.date;
-  editContent.value = item.content;
-  return {
-    editTitle,
-    editDate,
-    editContent
-};
 }
-
 
 
 function deleteItem(item) {
