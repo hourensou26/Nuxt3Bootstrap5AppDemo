@@ -19,21 +19,21 @@
 </template>
 
 <script setup>
-
+import { store } from '/workspaces/Nuxt3Bootstrap5AppDemo/composables/store.js';
 import { GetEditItem } from '~/composables/store';
 
-const items = ref([])
+const items = ref([]);
+let editTitle = ref('');
+let editDate = ref('');
+let editContent = ref('');
+
 onMounted(() => {
   const ls = localStorage.getItem('items');
   items.value = JSON.parse(ls) || [];
 })
 
-let editTitle = ref('');
-let editDate = ref('');
-let editContent = ref('');
-
 function about(id) {
-  GetEditItem(id);
+  GetEditItem(id, items.value);
 }
 
 function deleteItem(item) {

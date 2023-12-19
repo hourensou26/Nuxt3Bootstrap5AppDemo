@@ -1,14 +1,25 @@
-let editTitle = ref('');
-let editDate = ref('');
-let editContent = ref('');
+import { createStore } from 'vuex';
 
-function GetEditItem() {
+const store = createStore({
+  state: {
+    editTitle: '',
+    editDate: '',
+    editContent: '',
+    items: [],
+  },
+  mutations: {
+    getEditItem(state, id) {
+      const item = state.items.find((v) => v.id === id);
 
-  const item = items.value.find((v) => v.id === id);
+      if (item) {
+        state.editTitle = item.title;
+        state.editDate = item.date;
+        state.editContent = item.content;
+      } else {
+        console.error(`IDが${id}のアイテムが見つかりませんでした。`);
+      }
+    },
+  },
+});
 
-    editTitle.value = item.title;
-    editDate.value = item.date;
-    editContent.value = item.content;
-}
-
-export { editTitle, editDate, editContent, GetEditItem, items };
+export default store;
