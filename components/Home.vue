@@ -3,23 +3,20 @@
     <div class="card-body">
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
+      <p class="card-text pt-2">{{ editContent }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)" to="/about">詳細</nuxt-link>
+        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)">詳細</nuxt-link>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
   </div>
 
-  <p>{{editTitle}}</p>
-  <p>{{editDate}}</p>
-  <p>{{editContent}}</p>
   
 </template>
 
 <script setup>
 const items = ref([]);
-let editTitle = ref('');
-let editDate = ref('');
+
 let editContent = ref('');
 
 onMounted(() => {
@@ -30,13 +27,9 @@ onMounted(() => {
 function about(id) {
   const pickedItem = items.value.find((v) => v.id === id);
 
-  editTitle.value = pickedItem.title;
-  editDate.value = pickedItem.date;
   editContent.value = pickedItem.content;
   
   return{
-    editTitle: pickedItem.title,
-    editDate: pickedItem.date,
     editContent: pickedItem.content,
   }
 }
