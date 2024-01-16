@@ -5,8 +5,6 @@
       <p class="card-text pt-2">期限：{{ item.date }}</p>
       <div class="d-flex justify-content-end flex-wrap">
         <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)" to="/about">詳細</nuxt-link>
-        <nuxt-link class="btn btn-sm btn-success" @click="onEdit(item.id)" to="/detail">編集</nuxt-link>
-        <button class="btn btn-sm btn-danger" @click="about(item.id)">編集テスト</button>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
@@ -19,9 +17,6 @@
 </template>
 
 <script setup>
-import { store } from '/workspaces/Nuxt3Bootstrap5AppDemo/composables/store.js';
-import { GetEditItem } from '~/composables/store';
-
 const items = ref([]);
 let editTitle = ref('');
 let editDate = ref('');
@@ -33,7 +28,17 @@ onMounted(() => {
 })
 
 function about(id) {
-  GetEditItem(id, items.value);
+  const pickedItem = items.value.find((v) => v.id === id);
+
+  editTitle.value = pickedItem.title;
+  editDate.value = pickedItem.date;
+  editContent.value = pickedItem.content;
+  
+  return{
+    editTitle: pickedItem.title,
+    editDate: pickedItem.date,
+    editContent: pickedItem.content,
+  }
 }
 
 function deleteItem(item) {
