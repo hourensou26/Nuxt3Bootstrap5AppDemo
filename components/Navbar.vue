@@ -1,9 +1,7 @@
 <template>
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand">
-        <img src="/workspaces/Nuxt3Bootstrap5AppDemo/assets/スケジュールのアイコン.svg">
-      </a>
+      <a class="navbar-brand"><img src="3344028.png"></a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
