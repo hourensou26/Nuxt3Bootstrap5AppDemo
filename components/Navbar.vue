@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand"><img src="3344028.png"></a>
+      <a class="navbar-brand"><img src="../assets/3344028.png" height="10%" width="10%">予定アプリ</a>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
