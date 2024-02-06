@@ -1,5 +1,5 @@
 <template>
-  <div class="card w-50 mt-5" v-for="item in items" :key="item.id">
+  <div class="card w-50 mt-5" style="margin: auto;" v-for="item in items" :key="item.id">
     <div class="card-body">
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
