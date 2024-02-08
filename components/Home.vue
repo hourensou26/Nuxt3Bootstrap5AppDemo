@@ -3,9 +3,8 @@
     <div class="card-body">
       <h4 class="card-title">タイトル：{{ item.title }}</h4>
       <p class="card-text pt-2">期限：{{ item.date }}</p>
-      <p class="card-text pt-2">{{ editContent }}</p>
+      <p class="card-text pt-2 fs-5">詳細：{{item.content }}</p>
       <div class="d-flex justify-content-end flex-wrap">
-        <nuxt-link class="btn btn-sm btn-secondary" role="button" @click="about(item.id)">詳細</nuxt-link>
         <button class="btn btn-sm btn-danger" @click="deleteItem(item)">削除</button>
       </div>
     </div>
@@ -17,7 +16,6 @@
 <script setup>
 const items = ref([]);
 
-let editContent = ref('');
 
 onMounted(() => {
   const ls = localStorage.getItem('items');
